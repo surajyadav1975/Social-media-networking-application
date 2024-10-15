@@ -2,8 +2,9 @@ const jwt=require("jsonwebtoken");
 const user_model=require("../models/user-model");
 
 module.exports=async function(req,res,next){
+    // console.log(req.cookies.token);
     if(!req.cookies.token){
-        return res.send("you havent loggedin");
+        return res.json({message:"you havent loggedin"});
     }
 
     try{
@@ -14,7 +15,7 @@ module.exports=async function(req,res,next){
         next();
     }catch(err){
     
-        return res.send("error occured");
+        return res.json("error occured");
         return res.redirect("/");
     }
 }

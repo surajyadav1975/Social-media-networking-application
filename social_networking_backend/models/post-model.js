@@ -1,8 +1,9 @@
 const mongoose=require('mongoose');
+const { Buffer } = require('safe-buffer');
 
 const postsSchema=mongoose.Schema({
+    image: String,
     content: String,
-    image: { type: String, default: "" },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
     createdAt: { type: Date, default: Date.now },

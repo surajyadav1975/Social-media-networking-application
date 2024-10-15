@@ -4,6 +4,8 @@ const dotenv=require('dotenv')
 const userrouter=require('./routes/userrouter.js')
 const postrouter=require('./routes/postrouter.js')
 const cookieparser=require('cookie-parser')
+const cors=require('cors');
+
 
 dotenv.config();
 connectdb();
@@ -12,6 +14,12 @@ const app=express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true, 
+}));
+
+// app.options('/posts/create', cors());
 
 
 app.get('/', (req, res) => {
