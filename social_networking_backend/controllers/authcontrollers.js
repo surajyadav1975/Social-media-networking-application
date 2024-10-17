@@ -73,6 +73,15 @@ exports.getProfile = async (req, res) => {
     }
 }
 
+exports.getfollowers = async (req, res) => {
+    try {
+      const u = await user.findById(req.u.id).select("-password");
+      return res.json(u.followers);
+    } catch (err) {
+      return res.status(500).send("Server error");
+    }
+}
+
 exports.logoutUser=(req,res)=>{
     res.cookie("token","",{
         httpOnly: true, 

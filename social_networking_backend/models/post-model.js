@@ -5,7 +5,7 @@ const postsSchema=mongoose.Schema({
     image: String,
     content: String,
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
-    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
+    likes: [{ type: String}],
     createdAt: { type: Date, default: Date.now },
 });
 

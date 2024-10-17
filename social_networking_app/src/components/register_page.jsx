@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function register_page(){
+
+  const navigate=useNavigate();
 
   const handlesubmit=async (event)=>{
     const username=(event.target.username.value);
@@ -15,7 +18,9 @@ function register_page(){
       body: JSON.stringify({username,email,password,})
     })
     response=await response.text();
-    console.log(response);
+    // console.log(response);
+
+    navigate('/');
   }
 
   return (

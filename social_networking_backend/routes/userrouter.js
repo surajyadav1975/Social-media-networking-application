@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const {registerUser,loginUser,logoutUser,getProfile,checkAuth}=require('../controllers/authcontrollers')
+const {registerUser,loginUser,logoutUser,getProfile,checkAuth,getfollowers}=require('../controllers/authcontrollers')
 const authMiddleware=require('../middlewares/isloggedin')
 
 router.get("/",function(req,res){
@@ -11,6 +11,7 @@ router.post('/register',registerUser);
 router.post('/login',loginUser);
 router.get('/logout',logoutUser);
 router.get('/profile', authMiddleware, getProfile);
+router.get('/getfollowers', authMiddleware, getfollowers);
 router.get('/check_auth',checkAuth)
 
 module.exports=router;
