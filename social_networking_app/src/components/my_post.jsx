@@ -8,6 +8,7 @@ function Mypost({post}) {
                 <img
                 className="object-cover w-full h-full"
                 src={`data:image/jpeg;base64,${ post.image}`}
+
                 alt="Post Image"
                 />
             </div>
