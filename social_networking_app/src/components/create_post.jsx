@@ -12,7 +12,7 @@ const createpost = () => {
         const formData = new FormData();
         formData.append('image', file); 
         formData.append('content', content);
-        let response=await fetch('http://localhost:3000/posts/create',{
+        let response=await fetch('https://social-media-networking-application.onrender.com/posts/create',{
             method : "POST",
             body:formData,
             credentials: 'include',

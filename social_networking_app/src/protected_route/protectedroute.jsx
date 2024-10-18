@@ -9,7 +9,7 @@ function protectedroute({children}) {
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await fetch('http://localhost:3000/users/check_auth', {
+            const response = await fetch('https://social-media-networking-application.onrender.com/users/check_auth', {
               method: 'GET',
               credentials: 'include',
             });

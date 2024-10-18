@@ -48,8 +48,8 @@ exports.loginUser=async (req,res)=>{
                 let token=generatetoken(u);
                 res.cookie('token', token, {
                     httpOnly: true,        // Prevent JavaScript access
-                    secure: true,          // Ensure cookie is only sent over HTTPS (only if using HTTPS)
-                    sameSite: 'None',      // Allows the cookie to be sent from different domains
+                    secure: false,          // Ensure cookie is only sent over HTTPS (only if using HTTPS)
+                    // sameSite: 'None',      // Allows the cookie to be sent from different domains
                     maxAge: 24 * 60 * 60 * 1000, // Cookie expiration (1 day)
                 });
                 return res.status(200).json({message:"logged in"});
