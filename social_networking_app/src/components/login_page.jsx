@@ -19,13 +19,13 @@ function login_page(){
       credentials: 'include'
     })
     
-    if(response.ok){
-      navigate('/home');
-    }
-    else{
-      alert('username or password incorrect');
-      navigate('/');
-    }
+    // if(response.ok){
+    //   navigate('/home');
+    // }
+    // else{
+    //   alert('username or password incorrect');
+    //   navigate('/');
+    // }
   }
 
   return (
