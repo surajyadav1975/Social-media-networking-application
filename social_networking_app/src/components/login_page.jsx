@@ -10,7 +10,7 @@ function login_page(){
     const password=event.target.password.value;
     event.preventDefault();
 
-    let response=await fetch('http://localhost:3000/users/login',{
+    let response=await fetch('https://social-media-networking-application.onrender.com/users/login',{
       method : "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ function login_page(){
       body: JSON.stringify({email,password,}),
       credentials: 'include'
     })
-    
+    // console.log(response);
     if(response.ok){
       navigate('/home');
     }
