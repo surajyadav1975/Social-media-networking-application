@@ -10,7 +10,7 @@ function login_page(){
     const password=event.target.password.value;
     event.preventDefault();
 
-    let response=await fetch('https://social-media-networking-application.onrender.com/users/login',{
+    let response=await fetch('http://localhost:3000/users/login',{
       method : "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -19,13 +19,13 @@ function login_page(){
       credentials: 'include'
     })
     
-    // if(response.ok){
-    //   navigate('/home');
-    // }
-    // else{
-    //   alert('username or password incorrect');
-    //   navigate('/');
-    // }
+    if(response.ok){
+      navigate('/home');
+    }
+    else{
+      alert('username or password incorrect');
+      navigate('/');
+    }
   }
 
   return (
