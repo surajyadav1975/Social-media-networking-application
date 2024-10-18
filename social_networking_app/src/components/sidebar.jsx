@@ -14,6 +14,7 @@ const sidebar = () => {
     setflag(!flag);
   }
   return (
+    
     <div className="flex flex-col w-56 h-screen bg-gray-400 text-white p-4">
       <nav className="flex flex-col space-y-4">
         <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-gray-700">
