@@ -20,6 +20,8 @@ app.use(cors({
     allowedHeaders: 'Content-Type, Authorization',
 }));
 
+
+
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
