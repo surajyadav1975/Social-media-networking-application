@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const apiurl = import.meta.env.VITE_API_URL;
+
 function login_page(){
   const navigate=useNavigate();
 
@@ -10,7 +12,7 @@ function login_page(){
     const password=event.target.password.value;
     event.preventDefault();
 
-    let response=await fetch('https://social-media-networking-application.onrender.com/users/login',{
+    let response=await fetch(`${apiurl}/users/login`,{
       method : "POST",
       headers: {
         'Content-Type': 'application/json',

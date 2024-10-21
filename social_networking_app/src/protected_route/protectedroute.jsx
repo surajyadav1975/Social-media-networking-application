@@ -2,6 +2,8 @@ import React from 'react'
 import { useState ,useEffect} from 'react'
 import { useNavigate} from 'react-router-dom'
 
+const apiurl = import.meta.env.VITE_API_URL;
+
 function protectedroute({children}) {
     const [auth,setauth]=useState(false);
     const navigate = useNavigate();
@@ -9,7 +11,7 @@ function protectedroute({children}) {
     useEffect(() => {
         const checkAuthentication = async () => {
           try {
-            const response = await fetch('https://social-media-networking-application.onrender.com/users/check_auth', {
+            const response = await fetch(`${apiurl}/users/check_auth`, {
               method: 'GET',
               credentials: 'include',
             });

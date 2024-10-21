@@ -10,7 +10,6 @@ router.get("/",function(req,res){
 router.post('/register',registerUser);
 router.post('/login',loginUser);
 router.get('/logout',logoutUser);
-router.get('/profile', authMiddleware, getProfile);
 router.get('/getfollowers', authMiddleware, getfollowers);
 router.get('/check_auth',checkAuth)
 

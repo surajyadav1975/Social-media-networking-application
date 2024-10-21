@@ -6,7 +6,6 @@ import Home_page from "./components/home_page";
 import Protectedroute from "./protected_route/protectedroute";
 import ProfilePage from "./components/profile";
 import Header from "./components/header";
-// import Sidebar from './components/sidebar';
 import { Myprovider } from "./context/createContext";
 
 const App = () => {

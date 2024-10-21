@@ -1,6 +1,7 @@
 import {React ,createContext,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const apiurl = import.meta.env.VITE_API_URL;
 
 const MyContext=createContext();
 
@@ -11,7 +12,7 @@ export const Myprovider=({children})=>{
     const [loading, setLoading] = useState(true);
     const [followers, setfollowers] = useState([]);
     const handlelogout=async ()=>{
-      let response=await fetch('https://social-media-networking-application.onrender.com/users/logout',{
+      let response=await fetch(`${apiurl}/users/logout`,{
           method : "GET",
           credentials: 'include'
         })
@@ -26,7 +27,7 @@ export const Myprovider=({children})=>{
 
     const fetchPosts = async () => {
         try {
-          const response = await fetch('https://social-media-networking-application.onrender.com/posts/getfeed',{
+          const response = await fetch(`${apiurl}/posts/getfeed`,{
                 credentials:'include',
               }
           );
@@ -44,7 +45,7 @@ export const Myprovider=({children})=>{
 
     const fetchallPosts = async () => {
         try {
-          const response = await fetch('https://social-media-networking-application.onrender.com/posts/getallpost',{
+          const response = await fetch(`${apiurl}/posts/getallpost`,{
                 credentials:'include',
               }
           );
@@ -60,7 +61,7 @@ export const Myprovider=({children})=>{
         const handleLike = async (postId) => {
   
             try {
-                const response = await fetch(`https://social-media-networking-application.onrender.com/posts/like/${postId}`, {
+                const response = await fetch(`${apiurl}/posts/like/${postId}`, {
                     method: 'PATCH',
                     credentials: 'include',
                 });
@@ -79,7 +80,7 @@ export const Myprovider=({children})=>{
         const handlefollow = async (postId) => {
   
           try {
-              const response = await fetch(`https://social-media-networking-application.onrender.com/posts/follow/${postId}`, {
+              const response = await fetch(`${apiurl}/posts/follow/${postId}`, {
                   method: 'PATCH',
                   credentials: 'include',
               });
@@ -97,7 +98,7 @@ export const Myprovider=({children})=>{
 
       const getfollowers=async()=>{
         try {
-          const response = await fetch(`https://social-media-networking-application.onrender.com/users/getfollowers`, {
+          const response = await fetch(`${apiurl}/users/getfollowers`, {
               credentials: 'include',
           });
 

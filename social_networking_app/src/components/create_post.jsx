@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const apiurl = import.meta.env.VITE_API_URL;
+
 const createpost = () => {
     const navigate=useNavigate();
     const handleSubmit = async (e) => {
@@ -12,7 +14,7 @@ const createpost = () => {
         const formData = new FormData();
         formData.append('image', file); 
         formData.append('content', content);
-        let response=await fetch('https://social-media-networking-application.onrender.com/posts/create',{
+        let response=await fetch(`${apiurl}/posts/create`,{
             method : "POST",
             body:formData,
             credentials: 'include',

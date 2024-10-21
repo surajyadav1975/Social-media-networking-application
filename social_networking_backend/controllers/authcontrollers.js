@@ -23,9 +23,10 @@ exports.registerUser=async (req,res)=>{
        
                     let token=generatetoken(createduser);
                     res.cookie("token",token,{
-                        httpOnly: true,  
-                        secure: false,  
-                        maxAge: 3600000,
+                        httpOnly: true,      
+                        secure: true,         
+                        sameSite: 'None',      
+                        maxAge: 24 * 60 * 60 * 1000, 
                     });
                     return res.status(200).json({message:"Registered"});
                 }
@@ -47,10 +48,10 @@ exports.loginUser=async (req,res)=>{
             if(result){
                 let token=generatetoken(u);
                 res.cookie('token', token, {
-                    httpOnly: true,        // Prevent JavaScript access
-                    secure: false,          // Ensure cookie is only sent over HTTPS (only if using HTTPS)
-                    // sameSite: 'None',      // Allows the cookie to be sent from different domains
-                    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration (1 day)
+                    httpOnly: true,      
+                    secure: true,         
+                    sameSite: 'None',      
+                    maxAge: 24 * 60 * 60 * 1000, 
                 });
                 return res.status(200).json({message:"logged in"});
             }
@@ -84,8 +85,9 @@ exports.getfollowers = async (req, res) => {
 
 exports.logoutUser=(req,res)=>{
     res.cookie("token","",{
-        httpOnly: true, 
-        secure: false,   
+        httpOnly: true,      
+        secure: true,         
+        sameSite: 'None',      
     });
     return res.json("loggedout");
 }

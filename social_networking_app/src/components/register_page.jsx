@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const apiurl = import.meta.env.VITE_API_URL;
+
 function register_page(){
 
   const navigate=useNavigate();
@@ -10,7 +12,7 @@ function register_page(){
     const email=(event.target.email.value);
     const password=event.target.password.value;
     event.preventDefault();
-    let response=await fetch('http://localhost:3000/users/register',{
+    let response=await fetch(`${apiurl}/users/register`,{
       method : "POST",
       headers: {
         'Content-Type': 'application/json',
