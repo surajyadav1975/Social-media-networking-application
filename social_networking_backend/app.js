@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieparser());
 app.use(cors({
-    origin: 'https://zingy-clafoutis-c2251f.netlify.app',
+    origin: 'https://social-media-networking-application.vercel.app',
     credentials: true, 
     methods: 'GET,POST,PUT,DELETE,PATCH,OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
