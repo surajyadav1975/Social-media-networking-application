@@ -23,7 +23,7 @@ const Post = ({post}) => {
   }
 
   return (
-    <div className="max-w-96 mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-1xl my-5">
+    <div className="max-w-96 mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-1xl my-5 hover:scale-110 duration-700">
       <div className="h-78 w-full bg-gray-200">
         <img
           className="object-cover w-full h-full"
@@ -32,21 +32,21 @@ const Post = ({post}) => {
         />
       </div>
 
-      <div className="p">
-        <div className="font-bold ml-2 text-1xl leading-normal tracking-tight text-gray-900 mb-1 mr-2">{post.content}</div>
+      <div className="p-2">
+        <div className="font-bold ml-2 text-1xl leading-normal tracking-tight text-gray-900 mb-1 mr-2 min-h-20">{post.content}</div>
       </div>
 
-      <div className="px-4 py-2 bg-gray-100 border-t border-gray-200">
+      <div className="px-4 py-2 bg-gray-500 border-t border-gray-200">
         <div className="flex justify-between items-center">
           <button
-            className={`flex items-center ${likeclick? "text-blue-500":"text-gray-600"} hover:text-blue-500`}
+            className={`flex items-center font-bold ${likeclick? "text-blue-200":"text-gray-900"} hover:text-blue-200`}
             onClick={handleclicklike}
           >
             <HandThumbUpIcon className="w-6 h-6 mr-1" />
             <span>{like+post.likes.length}</span>
           </button>
 
-          <button className={`flex items-center hover:text-blue-500 ${clicked? "text-blue-500":"text-gray-600"}`}
+          <button className={`flex items-center font-bold hover:text-blue-200 ${clicked? "text-blue-200":"text-gray-900"}`}
           onClick={handlefollowclick}>
             <UserPlusIcon className="w-6 h-6 mr-1" />
             <span>Follow</span>

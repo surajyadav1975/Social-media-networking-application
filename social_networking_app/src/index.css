@@ -4,19 +4,60 @@
 
 
 .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+  position: relative;
+  display: inline-block;
+}
 
-  .createpost{
-    box-shadow: 0px 0px 1000px 20px #374151;
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.createpost{
+  box-shadow: 0px 0px 1000px 20px #374151;
+}
+
+.fixed-background {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  height: 100vh; 
+  overflow: auto;
+}
+.fixed-back{
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed;  */
+  height: 100vh; 
+  overflow: auto;
+}
+
+@media (max-width: 1087px) {
+  .sidebar {
+    display: none;
   }
+  .postslist {
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  .formpage{
+    /* display: flex */
+    flex-direction: column ;
+    /* max-height: 100vh; */
+  }
+  .form{
+    width: 100%;
+    height: 54%;
+  }
+  .image{
+    width: 100%;
+  }
+  .form1{
+    width: 100%;
+    height: 57%;
+  }
+}

@@ -27,8 +27,17 @@ const App = () => {
             path="/profile"
             element={
               <Protectedroute>
-                <Header></Header>
-                <ProfilePage></ProfilePage>
+                <div
+                className="fixed-background [&::-webkit-scrollbar]:w-0"
+                style={{
+                  backgroundImage: `url('/image/background.webp')`
+                }}
+                >
+                 <div className="w-[calc(100vw-1rem)] ">
+                    <Header />
+                  </div>
+                  <ProfilePage></ProfilePage>
+                </div>
               </Protectedroute>
             }
           />

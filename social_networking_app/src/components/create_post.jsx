@@ -31,12 +31,14 @@ const createpost = () => {
     };
 
   return (
-    <div className="bg-white shadow-lg text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 createpost rounded-md bg-blend-multiply p-20">
+    <div className="h-90 bg-white shadow-lg text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 createpost rounded-3xl bg-cover bg-center p-20"
+    style={{backgroundImage:`url('/image/background.webp')`}}
+    >
       <h1 className="text-2xl font-bold underline mb-6 text-center">Create Post</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-1xl font-bold text-gray-700 mb-2">Image</label>
-          <input id="image" name='image' type="file" accept="image/*" className="border rounded-lg pl-2 p-1 w-full" />
+          <input id="image" name='image' type="file" accept="image/*" className="border rounded-lg pl-2 p-1 w-full bg-white " />
         </div>
         
         <div className="mb-4">
@@ -45,12 +47,12 @@ const createpost = () => {
            
             id='content'
             name='content'
-            className="border p-2 w-full h-28 rounded-lg"
+            className="border p-2 pl-4 w-full h-28 rounded-lg"
             placeholder="Enter some content here..."
           />
         </div>
         
-        <button type="submit" className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-900 rounded-full">
+        <button type="submit" className="bg-white text-gray-900 hover:scale-125 duration-500 py-2 px-4 rounded-full">
           Submit
         </button>
       </form>
