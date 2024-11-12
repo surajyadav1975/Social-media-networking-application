@@ -32,7 +32,6 @@ const createpost = () => {
 
   return (
     <div className="h-90 bg-white shadow-lg text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 createpost rounded-3xl bg-cover bg-center p-20"
-    style={{backgroundImage:`url('/image/background.webp')`}}
     >
       <h1 className="text-2xl font-bold underline mb-6 text-center">Create Post</h1>
       <form onSubmit={handleSubmit}>
@@ -52,7 +51,9 @@ const createpost = () => {
           />
         </div>
         
-        <button type="submit" className="bg-white text-gray-900 hover:scale-125 duration-500 py-2 px-4 rounded-full">
+        <button type="submit" className="bg-white text-gray-900 hover:scale-125 duration-500 py-2 px-4 rounded-full"
+        style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}
+        >
           Submit
         </button>
       </form>
