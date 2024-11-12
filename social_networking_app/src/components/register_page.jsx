@@ -28,7 +28,7 @@ function register_page(){
   return (
     <>
       <div className="authentication flex h-screen formpage">
-      <div className="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8 w-4/12 form1">
+      <div className="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8 w-6/12 form1">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Your Company"
@@ -96,7 +96,8 @@ function register_page(){
               <button
                 // onClick={handlesubmit}
                 type="submit"
-                className="flex w-full justify-center rounded-2xl  hover:scale-110 duration-500 bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-2xl  hover:scale-110 duration-500 bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"   
+                style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}
               >
                 Register
               </button>
@@ -105,10 +106,10 @@ function register_page(){
 
         </div>
     </div>
-    <div className='w-8/12 image'>
+    <div className='w-6/12 image'>
       <img
             alt="Your Company"
-            src="/image/1.webp"
+            src="/image/6.jpg"
             className=" h-full w-full object-fill"
           />
       </div>

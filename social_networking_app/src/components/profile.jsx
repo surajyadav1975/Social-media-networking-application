@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Mypost from "./my_post";
 import { useContext } from "react";
 import MyContext from "../context/createContext";
+import { ArrowPathIcon} from '@heroicons/react/24/outline';
 
 const ProfilePage = () => {
   const [flag, setflag] = useState(false);
@@ -22,9 +23,9 @@ const ProfilePage = () => {
   return (
     <>
       {loading ? (
-        <p className="text-center font-bold italic animate-bounce text-2xl tracking-tight text-black-600 pb-2 mt-60">
-          Loading posts...
-        </p>
+          <p className="animate-spin place-content-center place-items-center w-full h-full">
+              <ArrowPathIcon className="w-6 h-6"/>
+          </p>
       ) : (
         <div>
           {flag && (
@@ -34,7 +35,7 @@ const ProfilePage = () => {
           )}
 
           <div className="flex justify-evenly items-center pt-10">
-            <div className="w-40 h-56 rounded-full overflow-hidden hover:scale-125 duration-700">
+            <div className="w-40 h-56 rounded-full overflow-hidden hover:scale-125 duration-700 border-2 border-black">
               <img
                 src={userdata.picture}
                 alt="Profile"
@@ -53,6 +54,7 @@ const ProfilePage = () => {
                 <button
                   onClick={handleCreatePostClick}
                   className="text-black bg-white px-4 py-2 font-bold rounded-full hover:scale-125 transition duration-700 ease-in-out"
+                  style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}
                 >
                   Create Post
                 </button>

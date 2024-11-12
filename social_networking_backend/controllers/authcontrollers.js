@@ -83,6 +83,15 @@ exports.getfollowers = async (req, res) => {
     }
 }
 
+exports.getallusers = async (req, res) => {
+    try {
+      const u = await user.find().select("username picture");
+      return res.json(u);
+    } catch (err) {
+      return res.status(500).send("Server error");
+    }
+}
+
 exports.logoutUser=(req,res)=>{
     res.cookie("token","",{
         httpOnly: true,      

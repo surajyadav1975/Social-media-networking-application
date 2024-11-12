@@ -11,6 +11,7 @@ export const Myprovider=({children})=>{
     const [allposts,setallposts] =useState([]);
     const [loading, setLoading] = useState(true);
     const [followers, setfollowers] = useState([]);
+    const [allusers, setallusers] = useState([]);
     const handlelogout=async ()=>{
       let response=await fetch(`${apiurl}/users/logout`,{
           method : "GET",
@@ -116,8 +117,27 @@ export const Myprovider=({children})=>{
       }
       }
 
+      const getallusers=async()=>{
+        try {
+          const response = await fetch(`${apiurl}/users/getallusers`, {
+              credentials: 'include',
+          });
+
+          if (response.ok) {
+              const data=await response.json();
+              setallusers(data);
+              // console.log(followers);
+          } else {
+              const errorData = await response.json();
+              alert(errorData.message);
+          }
+      } catch (err) {
+          console.error('Error following user:', err);
+      }
+      }
+
       return (
-        <MyContext.Provider value={{ posts, loading, allposts, userdata, followers, getfollowers, handlefollow, handlelogout, handleLike,fetchallPosts, fetchPosts}}>
+        <MyContext.Provider value={{ posts, loading, allposts, userdata, followers, allusers, getallusers, getfollowers, handlefollow, handlelogout, handleLike,fetchallPosts, fetchPosts}}>
             {children}
         </MyContext.Provider>
     );

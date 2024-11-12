@@ -5,7 +5,7 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown-content {
@@ -36,29 +36,18 @@
   overflow: auto;
 }
 
+.myprofile:hover{
+  background-color: orangered;
+  background-image: linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%);
+}
+
 @media (max-width: 1087px) {
   .sidebar {
     display: none;
   }
-  .postslist {
-    background-image: none !important;
-    background-color: transparent !important;
-  }
-  .formpage{
-    /* display: flex */
-    flex-direction: column ;
-    /* max-height: 100vh; */
-  }
-  .form{
-    width: 100%;
-    height: 65%;
-  }
+  
   .image{
-    width: 100%;
-    height: 31%;
+    display: none;
   }
-  .form1{
-    width: 100%;
-    height: 65%;
-  }
+  
 }

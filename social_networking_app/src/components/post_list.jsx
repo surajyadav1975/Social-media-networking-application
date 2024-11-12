@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HandThumbUpIcon, HandThumbDownIcon, ShareIcon, ChatBubbleLeftIcon, UserPlusIcon } from '@heroicons/react/24/outline';
+import { HandThumbUpIcon, HandThumbDownIcon, ShareIcon, EllipsisVerticalIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 import { useContext } from 'react';
 import MyContext from '../context/createContext';
 
@@ -23,8 +23,24 @@ const Post = ({post}) => {
   }
 
   return (
-    <div className="max-w-96 mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-1xl my-5 hover:scale-110 duration-700">
-      <div className="h-78 w-full bg-gray-200">
+    <div className="w-5/12 h-5/12 mx-auto bg-white rounded-lg overflow-hidden mb-5">
+      <div className="px-2 py-2">
+        <div className="flex justify-between items-center">
+          <div className='flex gap-4 items-center'>
+          <img src={post.userId.picture} alt="image" className='h-10 w-10 rounded-full object-cover p-px object-top border-black border-2'/>
+
+          <button className={`flex items-center font-bold hover:text-orange-500 text-gray-900`}>
+            <span>{post.userId.username}</span>
+          </button>
+          </div>
+          <div>
+            <EllipsisVerticalIcon className="w-6 h-6 mr-1"/>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="bg-gray-100">
         <img
           className="object-cover w-full h-full"
           src={`data:image/jpeg;base64,${ post.image}`}
@@ -36,17 +52,17 @@ const Post = ({post}) => {
         <div className="font-bold ml-2 text-1xl leading-normal tracking-tight text-gray-900 mb-1 mr-2 min-h-20">{post.content}</div>
       </div>
 
-      <div className="px-4 py-2 bg-gray-500 border-t border-gray-200">
+      <div className="px-4 py-2 border-t border-gray-200 border-t-1 border-black">
         <div className="flex justify-between items-center">
           <button
-            className={`flex items-center font-bold ${likeclick? "text-blue-200":"text-gray-900"} hover:text-blue-200`}
+            className={`flex items-center font-bold ${likeclick? "text-orange-500":"text-gray-900"} hover:text-orange-500`}
             onClick={handleclicklike}
           >
             <HandThumbUpIcon className="w-6 h-6 mr-1" />
             <span>{like+post.likes.length}</span>
           </button>
 
-          <button className={`flex items-center font-bold hover:text-blue-200 ${clicked? "text-blue-200":"text-gray-900"}`}
+          <button className={`flex items-center font-bold hover:text-orange-500 ${clicked? "text-orange-500":"text-gray-900"}`}
           onClick={handlefollowclick}>
             <UserPlusIcon className="w-6 h-6 mr-1" />
             <span>Follow</span>

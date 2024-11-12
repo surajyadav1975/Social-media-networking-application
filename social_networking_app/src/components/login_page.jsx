@@ -33,7 +33,7 @@ function login_page(){
   return (
     <>
       <div className="authentication flex h-screen formpage">
-      <div className="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8 w-4/12 form">
+      <div className="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8 w-6/12 form">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Your Company"
@@ -69,7 +69,7 @@ function login_page(){
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500 underline">
+                  <a href="#" className="font-semibold text-orange-500 hover:text-indigo-500 underline">
                     Forgot password?
                   </a>
                 </div>
@@ -91,6 +91,7 @@ function login_page(){
                 // onClick={handlesubmit}
                 type="submit"
                 className="flex w-full justify-center rounded-2xl bg-indigo-600 hover:bg-indigo-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:scale-110 duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}
               >
                 Sign in
               </button>
@@ -99,16 +100,16 @@ function login_page(){
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Do not have account?{' '}
-            <a href="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 underline">
+            <a href="/register" className="font-semibold leading-6 text-orange-500 hover:text-indigo-500 underline">
               Register
             </a>
           </p>
         </div>
       </div>
-      <div className='w-8/12 image'>
+      <div className='w-6/12 image'>
       <img
             alt="Your Company"
-            src="/image/1.webp"
+            src="/image/6.jpg"
             className=" h-full w-full object-fill"
           />
       </div>

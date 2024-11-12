@@ -9,8 +9,8 @@ function header() {
     
   return (
     <div>
-    <nav className={`w-full flex justify-between content-center py-2 m-2 rounded-3xl `} 
-    style={{backgroundColor: '#D9AFD9',backgroundImage: 'linear-gradient(90deg, #fbc2eb 0% ,#a6c1ee 100%)'}}>
+    <nav className={`w-screen flex justify-between content-center py-2`} 
+    style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(270deg, #FF4500 0% ,#ff7f50 100%)'}}>
     <a href="/home" className="nav__logo hover:scale-125 duration-700">
         <img
             alt="Your Company"
@@ -32,13 +32,10 @@ function header() {
         </button>
       </div>
 
-    
       <div className="absolute dropdown-content text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 right-0 z-10 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
-        <div className="py-1" role="none">
           <a href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-0">Profile</a>
           <a href="/home" className="block px-4 py-2 text-sm text-gray-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-2">Home</a>
           <a onClick={handlelogout} href='/' className="block px-4 py-2 text-sm text-red-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-1">Logout</a>
-        </div>
       </div>
     </div>
     </nav>

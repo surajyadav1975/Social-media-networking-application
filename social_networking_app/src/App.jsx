@@ -28,10 +28,7 @@ const App = () => {
             element={
               <Protectedroute>
                 <div
-                className="fixed-background [&::-webkit-scrollbar]:w-0"
-                style={{
-                  backgroundImage: `url('/image/background.webp')`
-                }}
+                className="fixed-background bg-gray-100 [&::-webkit-scrollbar]:w-0"
                 >
                  <div className="w-[calc(100vw-1rem)] ">
                     <Header />

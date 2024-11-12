@@ -14,24 +14,23 @@ const sidebar = () => {
     setflag(!flag);
   }
   return (
-    <div className="flex flex-col gap-16 w-56 h-11/12 bg-gray-400 text-white p-4 ml-2 rounded-3xl"
-    style={{backgroundColor: '#D9AFD9',backgroundImage: 'linear-gradient(90deg, #fbc2eb 0% ,#a6c1ee 100%)'}}>
+    <div className="flex flex-col gap-16 w-56 h-11/12 bg-white text-white p-4 rounded-lg">
       <nav className="flex flex-col space-y-4">
-        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-white hover:opacity-70">
+        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
           <HomeIcon className="w-6 h-6 mr-3" />
           My Profile
         </a>
-        <a href="#" onClick={handlefollowerclick} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-white hover:opacity-70">
+        <a href="#" onClick={handlefollowerclick} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
           <UserGroupIcon className="w-6 h-6 mr-3" />
           Your Followers
         </a>
         {flag && <div className='bg-gray-200 rounded-lg '
-         style={{backgroundColor: '#D9AFD9',backgroundImage: 'linear-gradient(270deg, #fbc2eb 0% ,#a6c1ee 100%)'}}>{(followers.map((name)=>(<div key={name} className='text-gray-900 m-2 font-bold text-center text-1xl'>{name}</div>)))}</div>}
-        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-white hover:opacity-70">
+         style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}>{(followers.map((name)=>(<div key={name} className='text-black m-2 font-bold text-center text-1xl'>{name}</div>)))}</div>}
+        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
           <FolderIcon className="w-6 h-6 mr-3" />
           Your Posts
         </a>
-        <a href="/" onClick={handlelogout} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-white hover:opacity-70">
+        <a href="/" onClick={handlelogout} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
           <ArrowRightStartOnRectangleIcon className="w-6 h-6 mr-3" />
           Logout
         </a>
@@ -40,7 +39,7 @@ const sidebar = () => {
 
       <div className="flex-grow"></div>
 
-      <a href="#" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg hover:bg-white hover:opacity-70">
+      <a href="#" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
         <Cog8ToothIcon className="w-6 h-6 mr-3" />
         Settings
       </a>

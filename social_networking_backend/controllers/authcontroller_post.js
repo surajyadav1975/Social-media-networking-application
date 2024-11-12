@@ -44,8 +44,7 @@ exports.getfeed=async (req,res)=>{
 exports.getallpost=async (req,res)=>{
     // const userId = req.u._id;
     try{
-        const posts = await post_model.find();
-        // const user= await User.findById(userId);
+        const posts = await post_model.find().populate('userId', 'username picture');
         return res.json({posts});
     }
     catch(err){
