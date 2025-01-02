@@ -15,7 +15,7 @@ export const Myprovider=({children})=>{
     const handlelogout=async ()=>{
       let response=await fetch(`${apiurl}/users/logout`,{
           method : "GET",
-          credentials: 'include'
+          credentials: 'include',
         })
         const mess= await response.json();
         if(response.ok){

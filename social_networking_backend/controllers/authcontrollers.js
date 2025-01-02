@@ -97,7 +97,9 @@ exports.logoutUser=(req,res)=>{
         httpOnly: true,
         secure: true, 
         sameSite: 'None',  
+        path: '/',
     })
+    console.log(req.cookies);
     return res.json("loggedout");
 }
 
