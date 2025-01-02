@@ -17,8 +17,9 @@ export const Myprovider=({children})=>{
           method : "GET",
           credentials: 'include'
         })
-
+        const mess= await response.json();
         if(response.ok){
+          alert(mess)
           navigate('/');
         }
         else{
