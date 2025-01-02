@@ -95,6 +95,8 @@ exports.logoutUser=(req,res)=>{
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 1 * 1000),
         httpOnly: true,
+        secure: true, 
+        sameSite: 'None',  
     })
     return res.json("loggedout");
 }
