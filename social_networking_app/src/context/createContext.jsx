@@ -88,7 +88,8 @@ export const Myprovider=({children})=>{
               });
   
               if (response.ok) {
-                  // const updatedPost = await response.json();
+                  const updatedPost = await response.json();
+                  alert(`you have followed ${updatedPost.username}`)
               } else {
                   const errorData = await response.json();
                   alert(errorData.message);
@@ -106,7 +107,6 @@ export const Myprovider=({children})=>{
 
           if (response.ok) {
               const data=await response.json();
-              // console.log(data);
               setfollowers(data);
               // console.log(followers);
           } else {

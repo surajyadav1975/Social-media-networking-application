@@ -41,13 +41,14 @@
   background-image: linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%);
 }
 
-@media (max-width: 1087px) {
+@media (max-width: 1420px) {
   .sidebar {
     display: none;
   }
-  
-  .image{
+  .leftbar{
     display: none;
   }
-  
+  .photo{
+    display: none;
+  }
 }

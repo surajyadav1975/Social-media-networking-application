@@ -1,24 +1,27 @@
-import React from 'react'
+import React from 'react';
 
-function Mypost({post}) {
+function Mypost({ post }) {
   return (
-    <> 
-        <div className="w-11/12 mx-auto bg-white text-center hover:shadow-3xl hover:scale-110  duration-700 rounded-xl shadow-md overflow-hidden md:max-w-1xl my-5 ">
-            <div className="h-78 w-full bg-gray-200 h-3/4">
-                <img
-                className="object-cover w-full h-full"
-                src={`data:image/jpeg;base64,${ post.image}`}
-
-                alt="Post Image"
-                />
-            </div>
-
-            <div className="p flex justify-center items-center h-1/4">
-                <div className="font-bold ml-2 text-1xl leading-normal tracking-tight text-gray-900 mb-1 mr-2">{post.content}</div>
-            </div>
+    <>
+      <div className="w-11/12 mx-auto bg-white text-center hover:shadow-2xl hover:scale-105 transition-transform duration-500 rounded-xl shadow-md overflow-hidden md:max-w-1xl my-5">
+        <div className="h-72 w-full bg-gray-200">
+          <img
+            className="object-cover w-full h-full rounded-t-xl"
+            src={`data:image/jpeg;base64,${post.image}`}
+            alt="Post Image"
+          />
         </div>
+
+        <div className="p-6 flex flex-col justify-center items-center space-y-3">
+          <h3 className="font-semibold text-lg text-gray-800">{post.title}</h3>
+          <p className="text-sm text-gray-600 leading-relaxed tracking-wide">{post.content}</p>
+          <div className="flex items-center space-x-2 mt-4 text-gray-500">
+            <span className="text-xs">{new Date(post.createdAt).toLocaleDateString()}</span>
+          </div>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Mypost
+export default Mypost;

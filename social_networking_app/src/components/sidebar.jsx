@@ -3,43 +3,60 @@ import { HomeIcon, UserGroupIcon, FolderIcon, ArrowRightStartOnRectangleIcon, Co
 import { useContext } from 'react';
 import MyContext from '../context/createContext';
 
-const sidebar = () => {
+const Sidebar = () => {
+  const { handlelogout, getfollowers, followers } = useContext(MyContext);
+  const [flag, setFlag] = useState(false);
 
-  const {handlelogout,getfollowers,followers}=useContext(MyContext);
-  
-  const [flag,setflag]=useState(false);
-  
-  const handlefollowerclick=()=>{
+  const handlefollowerclick = () => {
     getfollowers();
-    setflag(!flag);
+    setFlag(!flag);
   }
+
   return (
-    <div className="flex flex-col gap-16 w-56 h-11/12 bg-white text-white p-4 rounded-lg">
-      <nav className="flex flex-col space-y-4">
-        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
+    <div className="flex flex-col gap-6 w-full h-full bg-gradient-to-b from-indigo-700 to-indigo-500 text-white p-6 rounded-lg shadow-lg m-2">
+      <nav className="flex flex-col space-y-6">
+        {/* My Profile */}
+        <a href="/profile" className="flex items-center text-lg font-bold leading-8 text-gray-100 p-3 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
           <HomeIcon className="w-6 h-6 mr-3" />
           My Profile
         </a>
-        <a href="#" onClick={handlefollowerclick} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
+
+        {/* Your Followers */}
+        <a href="#" onClick={handlefollowerclick} className="flex items-center text-lg font-bold leading-8 text-gray-100 p-3 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
           <UserGroupIcon className="w-6 h-6 mr-3" />
           Your Followers
         </a>
-        {flag && <div className='bg-gray-200 rounded-lg '
-         style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(90deg, #FF4500 0% ,#ff7f50 100%)'}}>{(followers.map((name)=>(<div key={name} className='text-black m-2 font-bold text-center text-1xl'>{name}</div>)))}</div>}
-        <a href="/profile" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
+
+        {/* Follower List */}
+        {flag && 
+          <div className="bg-white text-gray-800 p-3 rounded-lg  text-center mt-2">
+            <div className="font-bold text-xl mb-2 border-b border-gray-400">Followers</div>
+            <div className="space-y-2">
+              {followers.map((name, index) => (
+                <div key={index} className="text-sm">{name}</div>
+              ))}
+            </div>
+          </div>
+        }
+
+        {/* Your Posts */}
+        <a href="/profile" className="flex items-center text-lg font-bold leading-8 text-gray-100 p-3 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
           <FolderIcon className="w-6 h-6 mr-3" />
           Your Posts
         </a>
-        <a href="/" onClick={handlelogout} className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
+
+        {/* Logout */}
+        <a href="/" onClick={handlelogout} className="flex items-center text-lg font-bold leading-8 text-gray-100 p-3 rounded-lg hover:bg-red-600 transition-colors duration-300">
           <ArrowRightStartOnRectangleIcon className="w-6 h-6 mr-3" />
           Logout
         </a>
       </nav>
-      <hr className="my-4 border-gray-900" />
 
-      <div className="flex-grow"></div>
+      {/* Divider */}
+      <hr className="my-4 border-gray-200" />
 
-      <a href="#" className="flex items-center text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 p-2 rounded-lg myprofile hover:text-white">
+      {/* Settings */}
+      <a href="#" className="flex items-center text-lg font-bold leading-8 text-gray-100 p-3 rounded-lg hover:bg-indigo-600 transition-colors duration-300">
         <Cog8ToothIcon className="w-6 h-6 mr-3" />
         Settings
       </a>
@@ -47,4 +64,4 @@ const sidebar = () => {
   );
 };
 
-export default sidebar;
+export default Sidebar;

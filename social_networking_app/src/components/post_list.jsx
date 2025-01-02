@@ -1,73 +1,86 @@
 import React, { useState } from 'react';
-import { HandThumbUpIcon, HandThumbDownIcon, ShareIcon, EllipsisVerticalIcon, UserPlusIcon } from '@heroicons/react/24/outline';
+import { HandThumbUpIcon, ShareIcon, EllipsisVerticalIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 import { useContext } from 'react';
 import MyContext from '../context/createContext';
 
-const Post = ({post}) => {
+const Post = ({ post }) => {
+  const [like, setLike] = useState(post.likes.length);
+  const [likeClicked, setLikeClicked] = useState(false);
+  const { handleLike, handlefollow } = useContext(MyContext);
+  const [followed, setFollowed] = useState(false);
 
-  const [like,setlike]=useState(0);
-  const [likeclick,setlikeclick]=useState(false);
-  const {handleLike,handlefollow}=useContext(MyContext);
-  const [clicked,setclicked]=useState(false);
-  const handleclicklike=()=>{
+  const handleLikeClick = () => {
     handleLike(post._id);
-    if(!likeclick){
-      setlike(like+1);
+    if (!likeClicked) {
+      setLike(like + 1);
     }
-    setlikeclick(true);
-  }
+    setLikeClicked(true);
+  };
 
-  const handlefollowclick=()=>{
+  const handleFollowClick = () => {
     handlefollow(post._id);
-    setclicked(true);
-  }
+    setFollowed(true);
+  };
 
   return (
-    <div className="w-5/12 h-5/12 mx-auto bg-white rounded-lg overflow-hidden mb-5">
-      <div className="px-2 py-2">
-        <div className="flex justify-between items-center">
-          <div className='flex gap-4 items-center'>
-          <img src={post.userId.picture} alt="image" className='h-10 w-10 rounded-full object-cover p-px object-top border-black border-2'/>
-
-          <button className={`flex items-center font-bold hover:text-orange-500 text-gray-900`}>
-            <span>{post.userId.username}</span>
+    <div className="w-full max-w-xl mx-auto bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden mb-6 transition-transform transform hover:scale-105 duration-300 hover:shadow-2xl">
+      {/* Post Header */}
+      <div className="px-4 py-4 flex justify-between items-center">
+        <div className="flex items-center space-x-3">
+          <img
+            src={post.userId.picture}
+            alt="User"
+            className="h-12 w-12 rounded-full object-cover border-2 border-gray-300"
+          />
+          <button className="font-semibold text-gray-900 hover:text-orange-500 transition-colors">
+            {post.userId.username}
           </button>
-          </div>
-          <div>
-            <EllipsisVerticalIcon className="w-6 h-6 mr-1"/>
-          </div>
-
         </div>
+        <EllipsisVerticalIcon className="w-6 h-6 text-gray-500 cursor-pointer hover:text-gray-700 transition-all" />
       </div>
 
-      <div className="bg-gray-100">
+      {/* Post Image */}
+      <div className="relative border-t border-b">
         <img
-          className="object-cover w-full h-full"
-          src={`data:image/jpeg;base64,${ post.image}`}
+          className="object-contain w-full h-64  shadow-md"
+          src={`data:image/jpeg;base64,${post.image}`}
           alt="Post Image"
         />
       </div>
 
-      <div className="p-2">
-        <div className="font-bold ml-2 text-1xl leading-normal tracking-tight text-gray-900 mb-1 mr-2 min-h-20">{post.content}</div>
+      {/* Post Content */}
+      <div className="p-4">
+        <p className="font-semibold text-lg text-gray-800">{post.content}</p>
       </div>
 
-      <div className="px-4 py-2 border-t border-gray-200 border-t-1 border-black">
-        <div className="flex justify-between items-center">
+      {/* Post Actions */}
+      <div className="px-4 py-3 border-t border-gray-200 flex justify-between items-center text-gray-600">
+        <div className="flex items-center space-x-4">
+          {/* Like Button */}
           <button
-            className={`flex items-center font-bold ${likeclick? "text-orange-500":"text-gray-900"} hover:text-orange-500`}
-            onClick={handleclicklike}
+            className={`flex items-center space-x-1 font-semibold ${likeClicked ? 'text-orange-500' : 'text-gray-600'} hover:text-orange-500 transition-colors`}
+            onClick={handleLikeClick}
           >
-            <HandThumbUpIcon className="w-6 h-6 mr-1" />
-            <span>{like+post.likes.length}</span>
+            <HandThumbUpIcon className="w-6 h-6" />
+            <span>{like}</span>
           </button>
 
-          <button className={`flex items-center font-bold hover:text-orange-500 ${clicked? "text-orange-500":"text-gray-900"}`}
-          onClick={handlefollowclick}>
-            <UserPlusIcon className="w-6 h-6 mr-1" />
+          {/* Follow Button */}
+          <button
+            className={`flex items-center space-x-1 font-semibold ${followed ? 'text-orange-500' : 'text-gray-600'} hover:text-orange-500 transition-colors`}
+            onClick={handleFollowClick}
+          >
+            <UserPlusIcon className="w-6 h-6" />
             <span>Follow</span>
           </button>
+        </div>
 
+        {/* Share Button */}
+        <div className="flex items-center space-x-4">
+          <button className="flex items-center space-x-1 font-semibold hover:text-orange-500 transition-colors">
+            <ShareIcon className="w-6 h-6" />
+            <span>Share</span>
+          </button>
         </div>
       </div>
     </div>
@@ -75,4 +88,3 @@ const Post = ({post}) => {
 };
 
 export default Post;
-

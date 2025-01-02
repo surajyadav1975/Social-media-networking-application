@@ -9,13 +9,12 @@ function header() {
     
   return (
     <div>
-    <nav className={`w-screen flex justify-between content-center py-2`} 
-    style={{backgroundColor: 'orangered',backgroundImage: 'linear-gradient(270deg, #FF4500 0% ,#ff7f50 100%)'}}>
+    <nav className={`w-screen flex justify-between content-center py-2 shadow-lg bg-gradient-to-r from-indigo-600 to-blue-500`} >
     <a href="/home" className="nav__logo hover:scale-125 duration-700">
         <img
             alt="Your Company"
-            src={`/image/3.png`}
-            className="mx-auto h-20 w-auto"
+            src={`/image/2.png`}
+            className="mx-4 h-14 my-2 w-auto"
         />
     </a>
 
