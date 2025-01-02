@@ -20,7 +20,7 @@ export const Myprovider=({children})=>{
         const mess= await response.json();
         if(response.ok){
           alert(mess)
-          navigate('/');
+          // navigate('/');
         }
         else{
           alert('some error ocurred');
