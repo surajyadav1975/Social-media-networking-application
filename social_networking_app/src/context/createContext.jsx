@@ -12,6 +12,7 @@ export const Myprovider=({children})=>{
     const [loading, setLoading] = useState(true);
     const [followers, setfollowers] = useState([]);
     const [allusers, setallusers] = useState([]);
+    const navigate=useNavigate();
     const handlelogout=async ()=>{
       let response=await fetch(`${apiurl}/users/logout`,{
           method : "GET",
@@ -20,7 +21,7 @@ export const Myprovider=({children})=>{
         const mess= await response.json();
         if(response.ok){
           alert(mess)
-          // navigate('/');
+          navigate('/');
         }
         else{
           alert('some error ocurred');
@@ -34,7 +35,6 @@ export const Myprovider=({children})=>{
               }
           );
 
-          // console.log("hi");
           const {posts,user} = await response.json();
           setuserdata(user)
           setPosts(posts); 
