@@ -92,14 +92,14 @@ exports.getallusers = async (req, res) => {
 }
 
 exports.logoutUser=(req,res)=>{
-    res.cookie('token', 'none', {
-        expires: new Date(Date.now() + 1 * 1000),
-        httpOnly: true,
-        secure: true, 
-        sameSite: 'None',  
-        path: '/',
-    })
-    console.log(req.cookies);
+    res.set('Cache-Control', 'no-store');
+    res.cookie('token', '', {
+        httpOnly: true,      
+        secure: true,         
+        sameSite: 'None',     
+        path: '/',            
+        expires: new Date(0),
+    });
     return res.json("loggedout");
 }
 
