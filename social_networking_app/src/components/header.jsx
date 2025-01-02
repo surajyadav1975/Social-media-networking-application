@@ -35,7 +35,7 @@ function header() {
       <div className="absolute dropdown-content text-center text-1xl font-bold leading-9 tracking-tight text-gray-900 right-0 z-10 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
           <a href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-0">Profile</a>
           <a href="/home" className="block px-4 py-2 text-sm text-gray-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-2">Home</a>
-          <a onClick={handlelogout} href='/' className="block px-4 py-2 text-sm text-red-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-1">Logout</a>
+          <a onClick={handlelogout} className="block px-4 py-2 text-sm text-red-700 hover:animate-pulse m-1 rounded-md bg-slate-100" role="menuitem" tabIndex="-1" id="menu-item-1">Logout</a>
       </div>
     </div>
     </nav>
